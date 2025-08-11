@@ -21,22 +21,22 @@
         /* New styles for the navigation buttons */
         .nav-buttons {
             display: flex;
-            gap: 0.3rem;
-            padding: 0.35rem;
+            gap: 0.2rem;
+            padding: 0.2rem;
             background-color: #96b7b2;
             border-radius: 9999px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .nav-button {
             flex: 1;
-            padding: 0.4rem 0.5rem;
+            padding: 0.3rem 0.4rem;
             font-weight: 500;
             border-radius: 9999px;
             text-align: center;
             transition: all 0.3s ease-in-out;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: white;
             cursor: pointer;
         }
@@ -48,7 +48,7 @@
         }
 
         .sidebar h2 {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
         }
 
         /* Card and Animation styles */
@@ -57,10 +57,9 @@
         }
         .card-text-container {
             border-radius: 1rem;
-            
         }
         .card-image-container {
-            border-radius: 1.5rem;
+            border-radius: 1rem;
             overflow: hidden;
             position: relative;
         }
@@ -87,28 +86,26 @@
         }
         .card {
             opacity: 0;
-            background-color: #ecfaf8;
             transform: translateY(10px) scale(0.95);
         }
         .card.is-visible-down { animation: fadeInSlideUp 0.6s ease-out forwards; animation-delay: var(--animation-delay); }
         .card.is-visible-up { animation: fadeInSlideDown 0.6s ease-out forwards; animation-delay: var(--animation-delay); }
-
     </style>
 </head>
 <body>
     
     <!-- Outer wrapper provides the space/padding, lifting the inner content from the edges -->
-    <div class="p-4 h-screen w-screen box-border">
+    <div class="p-2 h-screen w-screen box-border">
         <!-- The main content container now fills the entire viewport, with rounded corners on the whole block -->
-        <div class="flex h-full w-full rounded-3xl overflow-hidden">
+        <div class="flex h-full w-full rounded-2xl overflow-hidden">
             <!-- Left Sidebar -->
-            <div class="sidebar w-1/3 bg-[#393d52] text-white p-6 flex flex-col justify-between">
+            <div class="sidebar w-1/3 bg-[#393d52] text-white p-4 flex flex-col justify-between">
                 <div>
-                    <h1 class="text-xl  mb-2">Globyte LLC</h1>
+                    <h1 class="text-lg font-bold mb-1">Globyte LLC</h1>
                 </div>
                 <div>
-                    <h2 class="text-sm font-bold leading-tight">Driving Innovation Powering Businesses</h2>
-                    <p class="text-xs text-white opacity-75 mt-2 mb-8">Globyte LLC is a dedicated IT and business consulting firm committed to optimizing IT infrastructure, enhancing cybersecurity, streamlining operations, and driving sustainable growth with a comprehensive suite of services.</p>
+                    <h2 class="text-md font-bold leading-tight">Driving Innovation. Powering Businesses.</h2>
+                    <p class="text-[0.6rem] text-white opacity-75 mt-1 mb-6">Globyte LLC is a dedicated IT and business consulting firm committed to optimizing IT infrastructure, enhancing cybersecurity, streamlining operations, and driving sustainable growth with a comprehensive suite of services.</p>
                     
                     <!-- Updated button navigation -->
                     <div class="nav-buttons">
@@ -121,7 +118,7 @@
             </div>
             
             <!-- Right Content Area -->
-            <div class="main-content flex-grow p-8 overflow-y-auto">
+            <div class="main-content flex-grow p-6 overflow-y-auto">
                 
                 <!-- Dynamic title based on active button -->
                 <h2 id="main-content-title" class="text-lg font-bold mb-4 sticky top-0 pb-1 z-20">Our Expertise</h2>
@@ -295,28 +292,28 @@
 
                 data.forEach((item, index) => {
                     const card = document.createElement('div');
-                    card.classList.add('card', 'bg', 'p-3', 'rounded-xl', 'shadow-lg', 'flex', 'flex-col', 'md:flex-row', 'items-center', 'space-y-2', 'md:space-y-0', 'md:space-x-4', 'framer-card-clip-path');
+                    card.classList.add('card', 'bg-white', 'p-2', 'rounded-lg', 'shadow-lg', 'flex', 'flex-col', 'md:flex-row', 'items-center', 'space-y-2', 'md:space-y-0', 'md:space-x-4', 'framer-card-clip-path');
                     card.style.setProperty('--animation-delay', `${index * 0.1}s`);
 
                     card.innerHTML = `
                         <div class="flex-1 card-text-container p-2">
-                            <h3 class="text-md md:text-xl font-bold mb-1">${item.title}</h3>
-                            <p class="text-gray-600 mb-2 text-xs md:text-xs">${item.description}</p>
-                            <div class="flex items-center space-x-1.5">
-                                <button class="bg-red-500 text-white text-xs font-medium px-2 py-1 rounded-full hover:opacity-80 transition-opacity">be heard</button>
-                                <div class="bg-gray-200 text-gray-700 text-xs font-medium px-1.5 py-0.5 rounded-full flex items-center space-x-0.5">
+                            <h3 class="text-sm md:text-lg font-bold mb-1">${item.title}</h3>
+                            <p class="text-gray-600 mb-1 text-[0.6rem] md:text-xs">${item.description}</p>
+                            <div class="flex items-center space-x-1">
+                                <button class="bg-red-500 text-white text-[0.6rem] font-medium px-1.5 py-0.5 rounded-full hover:opacity-80 transition-opacity">be heard</button>
+                                <div class="bg-gray-200 text-gray-700 text-[0.6rem] font-medium px-1 py-0 rounded-full flex items-center space-x-0.5">
                                     <span>impact score ></span>
                                     <span class="font-bold">US</span>
                                 </div>
                             </div>
                         </div>
                         <div class="w-full md:w-1/3 relative card-image-container">
-                            <img src="${item.imageSrc}" alt="${item.title} image" class="object-cover w-full h-full rounded-xl">
+                            <img src="${item.imageSrc}" alt="${item.title} image" class="object-cover w-full h-full rounded-lg">
                             <div class="card-image-overlay"></div>
-                            <div class="absolute bottom-2 left-2 right-2 flex items-center justify-between z-10">
-                                <span class="bg-white/80 backdrop-blur-sm text-gray-800 text-xs font-medium px-1.5 py-0.5 rounded-full">${item.url}</span>
-                                <button class="bg-white text-gray-800 p-1 rounded-full shadow-md">
-                                    <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            <div class="absolute bottom-1.5 left-1.5 right-1.5 flex items-center justify-between z-10">
+                                <span class="bg-white/80 backdrop-blur-sm text-gray-800 text-[0.6rem] font-medium px-1 py-0 rounded-full">${item.url}</span>
+                                <button class="bg-white text-gray-800 p-0.5 rounded-full shadow-md">
+                                    <svg class="h-2.5 w-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                                 </button>
                             </div>
                         </div>
